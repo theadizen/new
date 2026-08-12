@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Saree Palace — Campaign Strategy Presentation</title>
+
+    <!-- Google Web Fonts: Galada (Bengali Campaign Font) & Hahmlet (Universal Body Font) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Galada&family=Hahmlet:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Adobe Fonts Placeholder for Belino Radego / Firlest -->
+    <link rel="stylesheet" href="https://use.typekit.net/YOUR-PROJECT-ID.css">
+    
+    <!-- Fallback Google Font for Display if Adobe Fonts fail to load -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Fallback / Custom Font Declarations */
+        @font-face {
+            font-family: 'Belino Radego';
+            src: local('Belino Radego'), local('Firlest');
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Firlest';
+            src: local('Firlest'), local('Belino Radego');
+            font-display: swap;
+        }
+
+        :root {
+            /* Premium Color Palette */
+            --bg-primary: #FAF7F2;
+            --bg-surface: #FFFFFF;
+            --bg-card: #FAF5EF;
+            --bg-dark: #1A0508;
+            --bg-dark-surface: #26080E;
+            
+            --color-wine: #4A0E17;
+            --color-wine-deep: #2A060B;
+            --color-maroon: #6B1522;
+            --color-gold: #C5A059;
+            --color-gold-bright: #E5C378;
+            --color-gold-light: #F7E9C8;
+            --color-sand: #E8DFD8;
+            
+            --color-text-main: #1C1917;
+            --color-text-muted: #665E58;
+            --color-text-light: #F8F5F0;
+
+            /* Strict Typography System */
+            --font-display: "Belino Radego", "Firlest", "Playfair Display", Georgia, serif;
+            --font-bengali: 'Galada', cursive, serif;
+            --font-body: 'Hahmlet', serif;
+
+            /* Effects & Spacing */
+            --shadow-sm: 0 4px 12px rgba(0,0,0,0.03);
+            --shadow-md: 0 12px 32px rgba(74,14,23,0.06);
+            --shadow-lg: 0 24px 54px rgba(74,14,23,0.12);
+            --shadow-gold: 0 8px 35px rgba(197,160,89,0.3);
+
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 36px;
+            --radius-full: 9999px;
+
+            --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            background-color: var(--bg-primary);
+            color: var(--color-text-main);
+        }
+
+        body {
+            overflow-x: hidden;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            font-family: var(--font-body);
+            font-weight: 400;
+        }
+
+        /* Top Progress Bar */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-wine), var(--color-gold), var(--color-gold-bright));
+            width: 0%;
+            z-index: 1000;
+            transition: width 0.1s linear;
+        }
+
+        /* Typography Helper Classes */
+        .font-bengali-title { font-family: var(--font-bengali); font-weight: 400; }
+        .font-display { font-family: var(--font-display); }
+        .text-gold { color: var(--color-gold-bright); }
+        .text-wine { color: var(--color-wine); }
+        .text-wine-deep { color: var(--color-wine-deep); }
+        
+        .section-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            background: rgba(197, 160, 89, 0.12);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: var(--radius-full);
+            color: var(--color-wine);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-family: var(--font-body);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            color: var(--color-wine-deep);
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .header-nav {
+            position: fixed;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 92%;
+            max-width: 1200px;
+            background: rgba(250, 247, 242, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(197, 160, 89, 0.25);
+            border-radius: var(--radius-full);
+            padding: 14px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 999;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            color: var(--color-wine-deep);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo-badge {
+            width: 32px;
+            height: 32px;
+            background: var(--color-wine);
+            color: var(--color-gold-bright);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-family: var(--font-bengali);
+            border: 1px solid var(--color-gold);
+        }
+
+        .nav-logo-img {
+            height: 32px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--color-text-main);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover { color: var(--color-gold); }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--color-wine);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mobile-nav-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            max-width: 100%;
+            height: 100vh;
+            background: var(--bg-surface);
+            box-shadow: -10px 0 40px rgba(0,0,0,0.15);
+            z-index: 1001;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            transition: var(--transition-smooth);
+        }
+
+        .mobile-nav-drawer.active { right: 0; }
+
+        .mobile-drawer-close {
+            align-self: flex-end;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            color: var(--color-wine);
+            cursor: pointer;
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .mobile-nav-link {
+            text-decoration: none;
+            color: var(--color-wine-deep);
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: var(--font-display);
+        }
+        
+        .mobile-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(26, 5, 8, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition-smooth);
+        }
+        .mobile-backdrop.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .section-container {
+            width: 90%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 100px 0;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            padding-top: 140px;
+            padding-bottom: 60px;
+            background: radial-gradient(circle at 90% 10%, rgba(197, 160, 89, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 10% 90%, rgba(74, 14, 23, 0.04) 0%, transparent 40%);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .hero-bengali-title {
+            font-family: var(--font-bengali);
+            font-size: 6rem;
+            line-height: 1.1;
+            color: var(--color-wine-deep);
+            text-shadow: 2px 4px 12px rgba(74, 14, 23, 0.08);
+            margin-bottom: -10px;
+        }
+
+        .hero-english-sub {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            letter-spacing: 3px;
+            color: var(--color-gold);
+            text-transform: uppercase;
+            line-height: 1.3;
+        }
+
+        .hero-statement {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+            border-left: 3px solid var(--color-gold);
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .hero-poster-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            aspect-ratio: 4 / 5;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 8px solid var(--bg-surface);
+            background: var(--bg-surface);
+        }
+
+        .hero-poster-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 80px;
+        }
+
+        .stat-card {
+            background: var(--bg-surface);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--color-wine-deep);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .gift-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .gift-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-smooth);
+        }
+        
+        .gift-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-gold);
+        }
+
+        .gift-image-box {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+        }
+
+        .gift-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .gift-card:hover .gift-img { transform: scale(1.05); }
+
+        .gift-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--bg-dark-surface);
+            color: var(--color-gold-bright);
+            padding: 6px 16px;
+            border-radius: var(--radius-full);
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            border: 1px solid var(--color-gold);
+            z-index: 2;
+        }
+
+        .gift-body {
+            padding: 32px 24px;
+        }
+
+        .gift-audience {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .gift-title {
+            font-size: 1.5rem;
+            color: var(--color-wine-deep);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .gift-desc {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .gift-quote {
+            font-style: italic;
+            color: var(--color-wine);
+            border-left: 2px solid var(--color-gold);
+            padding-left: 12px;
+            font-size: 0.95rem;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .bento-card {
+            background: var(--bg-surface);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            transition: var(--transition-smooth);
+        }
+        .bento-card:hover { border-color: var(--color-gold); }
+        .bento-span-2 { grid-column: span 2; }
+        
+        .bento-icon {
+            font-size: 1.8rem;
+            color: var(--color-gold);
+            margin-bottom: 16px;
+        }
+
+        .bento-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--color-wine-deep);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        
+        .comparison-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .comp-box {
+            padding: 50px 40px;
+            border-radius: var(--radius-xl);
+            position: relative;
+        }
+        
+        .comp-old {
+            background: #FDFDFD;
+            border: 1px solid #E5E5E5;
+        }
+        
+        .comp-new {
+            background: var(--bg-dark-surface);
+            color: var(--color-text-light);
+            border: 1px solid var(--color-gold);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .comp-list {
+            list-style: none;
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .comp-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .big-quote-section {
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .giant-quote {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            color: var(--color-wine-deep);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .photobooth-section {
+            background: var(--bg-surface);
+            border-top: 1px solid rgba(197, 160, 89, 0.2);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .photobooth-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .open-badge {
+            display: inline-block;
+            background: var(--color-wine);
+            color: var(--color-gold-bright);
+            padding: 8px 20px;
+            border-radius: var(--radius-full);
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .viewfinder-mockup {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+            aspect-ratio: 4 / 5; /* strictly 4:5 */
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 6px solid var(--color-gold);
+            box-shadow: var(--shadow-lg);
+            background: #000;
+        }
+
+        .viewfinder-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+        
+        .viewfinder-overlay {
+            position: absolute;
+            inset: 0;
+            border: 2px solid rgba(255,255,255,0.2);
+            margin: 16px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            pointer-events: none;
+        }
+
+        .social-flow {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .social-step {
+            background: var(--bg-card);
+            border: 1px solid rgba(197, 160, 89, 0.4);
+            padding: 10px 18px;
+            border-radius: var(--radius-full);
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            color: var(--color-wine-deep);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .gold-section {
+            background: var(--bg-dark-surface);
+            color: var(--color-text-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gold-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .gold-medallion-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 40px;
+        }
+
+        .gold-coin-orbit {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            position: relative;
+            display: grid;
+            place-items: center;
+        }
+
+        .gold-coin-halo {
+            position: absolute;
+            inset: -40px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(229, 195, 120, 0.25) 0%, rgba(197, 160, 89, 0.05) 50%, transparent 70%);
+            animation: pulseHalo 4s ease-in-out infinite alternate;
+            z-index: 1;
+        }
+
+        @keyframes pulseHalo {
+            0% { transform: scale(0.9); opacity: 0.6; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .gold-coin-ring {
+            position: absolute;
+            inset: -16px;
+            border-radius: 50%;
+            border: 2px dashed rgba(229, 195, 120, 0.4);
+            animation: rotateRing 20s linear infinite;
+            z-index: 2;
+        }
+
+        @keyframes rotateRing {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .gold-coin-image {
+            width: 240px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 50%;
+            z-index: 3;
+            border: 4px solid var(--color-gold-bright);
+            box-shadow: 0 0 50px rgba(229, 195, 120, 0.4), inset 0 0 30px rgba(0,0,0,0.8);
+            animation: floatCoin 6s ease-in-out infinite;
+        }
+
+        @keyframes floatCoin {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .gold-value-tag {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            color: var(--color-gold-bright);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .gold-disclaimer {
+            margin-top: 30px;
+            padding: 16px 20px;
+            background: rgba(255,255,255,0.05);
+            border-left: 3px solid var(--color-gold-bright);
+            font-size: 0.95rem;
+            color: var(--color-gold-light);
+        }
+
+        .journey-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .journey-item {
+            display: flex;
+            align-items: center;
+            background: var(--bg-surface);
+            padding: 20px 30px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            gap: 30px;
+        }
+        
+        .journey-num {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-gold);
+            min-width: 60px;
+        }
+
+        .system-flow {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+        
+        .system-card {
+            background: var(--bg-surface);
+            padding: 40px 30px;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--color-gold);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .final-vision-section {
+            background: var(--bg-dark);
+            color: var(--color-text-light);
+            text-align: center;
+            padding: 140px 0;
+            border-top: 2px solid var(--color-gold);
+        }
+
+        .final-bengali {
+            font-family: var(--font-bengali);
+            font-size: 5rem;
+            color: var(--color-gold-bright);
+            margin-bottom: 30px;
+        }
+
+        .final-english {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            letter-spacing: 4px;
+            line-height: 1.4;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-grid, .photobooth-grid, .gold-grid, .comparison-split { grid-template-columns: 1fr; text-align: center; }
+            .hero-stats-row, .gift-grid, .system-flow { grid-template-columns: repeat(1, 1fr); gap: 20px; }
+            .bento-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-poster-wrapper, .viewfinder-mockup { max-width: 400px; margin: 40px auto 0; }
+            .social-flow { justify-content: center; }
+            .journey-item { flex-direction: column; text-align: center; gap: 10px; }
+            .gold-disclaimer { text-align: left; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .bento-grid { grid-template-columns: 1fr; }
+            .bento-span-2 { grid-column: span 1; }
+            .hero-bengali-title { font-size: 4.5rem; }
+            .giant-quote { font-size: 2.2rem; }
+            .final-bengali { font-size: 3.5rem; }
+            .gold-coin-orbit { width: 260px; height: 260px; }
+            .gold-coin-image { width: 190px; height: 190px; }
+        }
+
+        /* Utility classes for animation */
+        .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <div id="scroll-progress"></div>
+
+    <div class="mobile-backdrop" id="mobile-backdrop" onclick="toggleMobileMenu()"></div>
+    <div class="mobile-nav-drawer" id="mobile-drawer">
+        <button class="mobile-drawer-close" onclick="toggleMobileMenu()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <ul class="mobile-nav-links">
+            <li><a href="#hero" class="mobile-nav-link" onclick="toggleMobileMenu()">Overview</a></li>
+            <li><a href="#idea" class="mobile-nav-link" onclick="toggleMobileMenu()">The Idea</a></li>
+            <li><a href="#gifts" class="mobile-nav-link" onclick="toggleMobileMenu()">The Gifts</a></li>
+            <li><a href="#difference" class="mobile-nav-link" onclick="toggleMobileMenu()">Why It Wins</a></li>
+            <li><a href="#journey" class="mobile-nav-link" onclick="toggleMobileMenu()">Journey</a></li>
+            <li><a href="#photobooth" class="mobile-nav-link" onclick="toggleMobileMenu()">Photo Moment</a></li>
+            <li><a href="#gold" class="mobile-nav-link" onclick="toggleMobileMenu()">Golden Moment</a></li>
+            <li><a href="#vision" class="mobile-nav-link" onclick="toggleMobileMenu()">Vision</a></li>
+        </ul>
+    </div>
+
+    <header class="header-nav">
+        <a href="#hero" class="nav-logo">
+            <img src="logo2.0.png" alt="Modern Saree Palace Logo" class="nav-logo-img">
+            <span>MODERN SAREE PALACE</span>
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#idea" class="nav-link">The Idea</a></li>
+                <li><a href="#gifts" class="nav-link">The Gifts</a></li>
+                <li><a href="#difference" class="nav-link">Why It Wins</a></li>
+                <li><a href="#journey" class="nav-link">Journey</a></li>
+                <li><a href="#photobooth" class="nav-link">Photo Moment</a></li>
+                <li><a href="#gold" class="nav-link">Golden Moment</a></li>
+            </ul>
+        </nav>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="section-container" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
+                <div class="hero-grid">
+                    <div class="hero-content fade-up">
+                        <span class="section-badge">Strategic Campaign Proposal</span>
+                        <h1 class="hero-bengali-title">দশে বাজিমাত</h1>
+                        <div class="hero-english-sub">A DIFFERENT KIND OF RETAIL EXPERIENCE</div>
+                        
+                        <div style="margin-top: 10px;">
+                            <h2 class="font-display text-wine-deep" style="font-size: 1.8rem; margin-bottom: 8px;">₹10,000+ SHOPPING <br><span class="text-gold">CHOOSE YOUR PREMIUM GIFT</span></h2>
+                            <p style="font-size: 1.1rem; color: var(--color-wine);">১০,০০০ টাকার কেনাকাটায় আপনার পছন্দের বিশেষ উপহার।</p>
+                        </div>
+                        
+                        <div class="hero-statement">
+                            We are not competing on the cheapest freebie.<br>
+                            We are competing on the experience.
+                        </div>
+                    </div>
+                    
+                    <div class="hero-poster-wrapper fade-up">
+                        <img class="hero-poster-img" src="poster.png" alt="Modern Saree Palace দশে বাজিমাত campaign poster">
+                    </div>
+                </div>
+
+                <div class="hero-stats-row fade-up">
+                    <div class="stat-card">
+                        <div class="stat-number">₹10K+</div>
+                        <div class="stat-label">Purchase Threshold</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Premium Gift Experiences</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">36K+</div>
+                        <div class="stat-label">Local Customer Opportunity</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="idea" style="background: var(--bg-surface); padding: 100px 0;">
+            <div class="section-container fade-up">
+                <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    <span class="section-badge">01 · Concept</span>
+                    <h2 class="section-title">THE IDEA</h2>
+                    <p style="font-size: 1.15rem; color: var(--color-text-muted); margin-bottom: 40px;">
+                        Traditional retail promotions say: <em>"Spend X, get a pressure cooker."</em> This creates transactional value but very little emotional memory. Modern Saree Palace offers a different path: Spend ₹10,000 and receive something you actually want for your lifestyle.
+                    </p>
+                    
+                    <h3 class="font-display text-wine-deep" style="font-size: 1.5rem; margin-bottom: 24px;">THE ₹10K EFFECT</h3>
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 16px; font-family: var(--font-display); font-size: 1.8rem; color: var(--color-gold); margin-bottom: 24px; flex-wrap: wrap;">
+                        <span>₹7K</span> <i class="fa-solid fa-arrow-right" style="font-size: 1rem; color: var(--color-text-muted);"></i>
+                        <span>₹8K</span> <i class="fa-solid fa-arrow-right" style="font-size: 1rem; color: var(--color-text-muted);"></i>
+                        <span>₹9K</span> <i class="fa-solid fa-arrow-right" style="font-size: 1rem; color: var(--color-text-muted);"></i>
+                        <span class="text-wine-deep font-weight-bold" style="font-size: 2.2rem;">₹10K <i class="fa-solid fa-gift"></i></span>
+                    </div>
+                    <p style="color: var(--color-text-muted);">
+                        Designed to encourage higher-value baskets. A customer already shopping around ₹7,000–₹9,000 has a clear psychological reason to complete the purchase and unlock a premium reward.<br><br>
+                        <span style="color: var(--color-wine); font-weight: 500;">আর একটু কিনলেই প্রিমিয়াম উপহার — এই সহজ লক্ষ্যটাই কেনাকাটাকে এগিয়ে নিতে পারে।</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gifts" class="section-container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;" class="fade-up">
+                <span class="section-badge">02 · The Gift Strategy</span>
+                <h2 class="section-title">DIFFERENT CUSTOMERS.<br>DIFFERENT DESIRES.<br><span class="text-gold">ONE CAMPAIGN.</span></h2>
+                <p style="font-size: 1.1rem; color: var(--color-text-muted);">The campaign offers three distinct gifts, psychologically designed for the three major customer segments in Kamakhyaguri.</p>
+            </div>
+
+            <div class="gift-grid fade-up">
+                <!-- Gift 01 -->
+                <div class="gift-card">
+                    <div class="gift-image-box">
+                        <span class="gift-tag">TRADITION</span>
+                        <img class="gift-img" src="thali.jpg" alt="Premium Brass Puja Thali">
+                    </div>
+                    <div class="gift-body">
+                        <div class="gift-audience">Best for: 40+ / Traditional / Mothers</div>
+                        <h3 class="gift-title">Premium Brass Puja Thali</h3>
+                        <p class="gift-desc">For customers who value permanence, cultural meaning, and visible household heritage.</p>
+                        <p class="gift-quote">"এটা শুধু উপহার নয়, ঘরের জন্য একটি স্থায়ী স্মৃতি।"</p>
+                    </div>
+                </div>
+
+                <!-- Gift 02 -->
+                <div class="gift-card">
+                    <div class="gift-image-box">
+                        <span class="gift-tag">MODERN HOME</span>
+                        <img class="gift-img" src="lamp.jpg" alt="Premium LED Decorative Tree Lamp">
+                    </div>
+                    <div class="gift-body">
+                        <div class="gift-audience">Best for: 25–40 / Modern / Home Décor</div>
+                        <h3 class="gift-title">LED Decorative Tree Lamp</h3>
+                        <p class="gift-desc">Designed around aesthetics, warm ambience, and lifestyle aspiration. A beautiful object for her room.</p>
+                        <p class="gift-quote">"ঘরের সৌন্দর্যের সঙ্গে প্রতিদিনের স্মৃতি।"</p>
+                    </div>
+                </div>
+
+                <!-- Gift 03 -->
+                <div class="gift-card">
+                    <div class="gift-image-box">
+                        <span class="gift-tag">SURPRISE</span>
+                        <img class="gift-img" src="surprise box.jpg" alt="MSP Curated Surprise Gift Box">
+                    </div>
+                    <div class="gift-body">
+                        <div class="gift-audience">Best for: 18–30 / Gen Z / Social</div>
+                        <h3 class="gift-title">MSP Curated Surprise Box</h3>
+                        <p class="gift-desc">A curated lifestyle surprise triggering curiosity, unboxing excitement, and social media sharing.</p>
+                        <p class="gift-quote">"খুললেই চমক — আর মনে থাকবে Modern Saree Palace।"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-container fade-up">
+            <h3 class="font-display text-wine-deep" style="font-size: 1.8rem; text-align: center; margin-bottom: 30px;">WHY THESE GIFTS WORK</h3>
+            <div class="bento-grid">
+                <div class="bento-card bento-span-2">
+                    <i class="fa-regular fa-calendar-check bento-icon"></i>
+                    <h4 class="bento-title">DAILY USE</h4>
+                    <p style="color: var(--color-text-muted); font-size: 0.95rem;">The customer keeps using and seeing the gift in their home long after the shopping trip is over.</p>
+                </div>
+                <div class="bento-card">
+                    <i class="fa-solid fa-gem bento-icon"></i>
+                    <h4 class="bento-title">PREMIUM LOOK</h4>
+                    <p style="color: var(--color-text-muted); font-size: 0.95rem;">The reward looks significantly more expensive than standard promotional items.</p>
+                </div>
+                <div class="bento-card">
+                    <i class="fa-solid fa-heart bento-icon"></i>
+                    <h4 class="bento-title">EMOTIONAL VALUE</h4>
+                    <p style="color: var(--color-text-muted); font-size: 0.95rem;">The product connects to their lifestyle, family, or personal identity.</p>
+                </div>
+                <div class="bento-card">
+                    <i class="fa-solid fa-brain bento-icon"></i>
+                    <h4 class="bento-title">MEMORY</h4>
+                    <p style="color: var(--color-text-muted); font-size: 0.95rem;">The customer remembers exactly where this premium item came from.</p>
+                </div>
+                <div class="bento-card bento-span-2">
+                    <i class="fa-solid fa-share-nodes bento-icon"></i>
+                    <h4 class="bento-title">SOCIAL VALUE & DIFFERENTIATION</h4>
+                    <p style="color: var(--color-text-muted); font-size: 0.95rem;">A customer is much more likely to show a beautiful LED lamp or Thali to friends than a generic plastic container. Competitors are missing this experience.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="difference" style="background: var(--bg-surface); padding: 80px 0;">
+            <div class="section-container fade-up">
+                <div style="text-align: center;">
+                    <span class="section-badge">03 · Market Positioning</span>
+                    <h2 class="section-title">WHY WE WIN</h2>
+                </div>
+
+                <div class="comparison-split">
+                    <div class="comp-box comp-old">
+                        <h3 class="font-display" style="color: #666; font-size: 1.4rem;">THE OLD RETAIL PLAYBOOK</h3>
+                        <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 8px;">Conventional retail promotion patterns used by general value chains.</p>
+                        <ul class="comp-list" style="color: #666;">
+                            <li><i class="fa-solid fa-xmark" style="color: #DC3545;"></i> Pressure Cooker</li>
+                            <li><i class="fa-solid fa-xmark" style="color: #DC3545;"></i> Casserole</li>
+                            <li><i class="fa-solid fa-xmark" style="color: #DC3545;"></i> Plastic Containers</li>
+                            <li><i class="fa-solid fa-xmark" style="color: #DC3545;"></i> Trolley Bags</li>
+                            <li><i class="fa-solid fa-xmark" style="color: #DC3545;"></i> Generic Discounts</li>
+                        </ul>
+                    </div>
+                    <div class="comp-box comp-new">
+                        <h3 class="font-display text-gold" style="font-size: 1.4rem;">THE MODERN SAREE PALACE PLAYBOOK</h3>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-top: 8px;">Designed around the 36,000+ Kamakhyaguri local customer opportunity.</p>
+                        <ul class="comp-list">
+                            <li><i class="fa-solid fa-check" style="color: var(--color-gold-bright);"></i> Premium Chosen Gift</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--color-gold-bright);"></i> In-Store Photo Booth</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--color-gold-bright);"></i> Social Media Sharing</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--color-gold-bright);"></i> 1g Gold Opportunity</li>
+                            <li><i class="fa-solid fa-check" style="color: var(--color-gold-bright);"></i> Long-term Brand Memory</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="big-quote-section">
+                    <div class="giant-quote">THEY GIVE A FREEBIE.<br>WE CREATE A MEMORY.</div>
+                    <p style="font-size: 1.2rem; color: var(--color-text-muted); font-style: italic;">"Don't compete on the cheapest gift. Compete on the experience."</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey" class="section-container fade-up">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-badge">04 · The Flow</span>
+                <h2 class="section-title">CUSTOMER JOURNEY</h2>
+            </div>
+            
+            <div class="journey-list">
+                <div class="journey-item">
+                    <div class="journey-num">01</div>
+                    <div>
+                        <h4 class="font-display text-wine-deep" style="font-size: 1.2rem;">VISIT & SHOP</h4>
+                        <p style="color: var(--color-text-muted);">Customer enters Modern Saree Palace and explores the collection.</p>
+                    </div>
+                </div>
+                <div class="journey-item">
+                    <div class="journey-num">02</div>
+                    <div>
+                        <h4 class="font-display text-wine-deep" style="font-size: 1.2rem;">UNLOCK ₹10K</h4>
+                        <p style="color: var(--color-text-muted);">Bill reaches the threshold. Customer chooses their premium gift.</p>
+                    </div>
+                </div>
+                <div class="journey-item">
+                    <div class="journey-num">03</div>
+                    <div>
+                        <h4 class="font-display text-wine-deep" style="font-size: 1.2rem;">CAPTURE & SHARE</h4>
+                        <p style="color: var(--color-text-muted);">Customer enters the photo booth, takes a photo, and posts to Instagram/Facebook.</p>
+                    </div>
+                </div>
+                <div class="journey-item">
+                    <div class="journey-num">04</div>
+                    <div>
+                        <h4 class="font-display text-wine-deep" style="font-size: 1.2rem;">GOLD CHANCE & MEMORY</h4>
+                        <p style="color: var(--color-text-muted);">Post enters the 1g gold race. The premium gift remains at home, building brand memory.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="photobooth" class="photobooth-section">
+            <div class="section-container fade-up">
+                <div class="photobooth-grid">
+                    <div>
+                        <div class="open-badge">OPEN TO EVERY PURCHASER</div>
+                        <h2 class="section-title">THE PHOTO MOMENT</h2>
+                        <p style="font-size: 1.15rem; color: var(--color-wine-deep); font-weight: 500; margin-bottom: 16px;">
+                            Every customer who makes a purchase can participate. This is NOT restricted to ₹10,000 shoppers.
+                        </p>
+                        <p style="color: var(--color-text-muted); margin-bottom: 24px;">
+                            শাড়ি কিনুন বা অন্য কিছু — ফটো বুথ সবার জন্য খোলা। একটি ছবি তুলুন। পোস্ট করুন। Modern Saree Palace-কে ট্যাগ করুন। আপনার ছবিই হতে পারে আমাদের পরের গোল্ডেন মোমেন্ট।
+                        </p>
+                        
+                        <div class="social-flow">
+                            <div class="social-step"><i class="fa-solid fa-bag-shopping"></i> SHOP</div>
+                            <div class="social-step"><i class="fa-solid fa-camera"></i> CAPTURE</div>
+                            <div class="social-step"><i class="fa-brands fa-instagram"></i> SHARE</div>
+                            <div class="social-step"><i class="fa-solid fa-at"></i> TAG</div>
+                            <div class="social-step" style="background: var(--color-gold-bright); color: var(--bg-dark); font-weight: 600;"><i class="fa-solid fa-medal"></i> QUALIFY</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="viewfinder-mockup">
+                            <img class="viewfinder-img" src="booth.png" alt="Modern Saree Palace Photo Booth">
+                            <div class="viewfinder-overlay">
+                                <div style="text-align: center; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); padding: 10px; border-radius: var(--radius-md); border: 1px solid rgba(197, 160, 89, 0.5);">
+                                    <span style="font-family: var(--font-display); color: var(--color-gold-bright); font-size: 1.1rem;">#দশেবাজিমাত</span><br>
+                                    <span style="color: white; font-size: 0.8rem; letter-spacing: 1px;">@MODERNSAREEPALACE</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gold" class="gold-section">
+            <div class="section-container fade-up">
+                <div class="gold-grid">
+                    <div class="gold-medallion-container">
+                        <div class="gold-coin-orbit">
+                            <div class="gold-coin-halo"></div>
+                            <div class="gold-coin-ring"></div>
+                            <img class="gold-coin-image" src="gold.png" alt="1 gram gold coin">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <span class="section-badge" style="background: rgba(255,255,255,0.1); color: var(--color-gold-bright); border-color: var(--color-gold);">Social Reward</span>
+                        <h2 class="section-title" style="color: var(--color-text-light);">THE GOLDEN MOMENT</h2>
+                        
+                        <div class="gold-value-tag">1 GRAM GOLD COIN</div>
+                        <div style="font-family: var(--font-display); font-size: 1.1rem; color: var(--color-sand); letter-spacing: 2px; margin-bottom: 24px;">MARKET VALUE: ~₹22,000</div>
+                        
+                        <p style="color: var(--color-sand); font-size: 1.1rem; line-height: 1.7; margin-bottom: 24px;">
+                            ফটো বুথে আসুন। ছবি তুলুন। Instagram বা Facebook-এ শেয়ার করুন। Modern Saree Palace-কে ট্যাগ করুন। আর সবার মধ্যে থেকে একজন জিতে নিতে পারেন ১ গ্রাম সোনার কয়েন।
+                        </p>
+
+                        <div class="social-flow" style="margin-bottom: 24px;">
+                            <div class="social-step" style="background: transparent; color: var(--color-gold-light);">BUY</div>
+                            <div class="social-step" style="background: transparent; color: var(--color-gold-light);">CAPTURE</div>
+                            <div class="social-step" style="background: transparent; color: var(--color-gold-light);">SHARE</div>
+                            <div class="social-step" style="background: transparent; color: var(--color-gold-light);">TAG</div>
+                            <div class="social-step" style="background: var(--color-gold); color: var(--bg-dark-surface); font-weight: bold;">WIN 1G GOLD</div>
+                        </div>
+
+                        <div class="gold-disclaimer">
+                            <strong>অংশগ্রহণের জন্য ₹10,000 কেনাকাটা বাধ্যতামূলক নয়।</strong><br>
+                            যে কোনো কেনাকাটার পর এই সোশ্যাল ক্যাম্পেইনে অংশগ্রহণ করা যাবে। শর্তাবলী প্রযোজ্য। যোগ্য প্রকাশ্য পোস্টগুলির মধ্য থেকে স্বচ্ছ নির্বাচনের মাধ্যমে বিজয়ী নির্বাচন করা হবে।
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section-container fade-up">
+            <h3 class="font-display text-wine-deep" style="font-size: 1.8rem; text-align: center; margin-bottom: 30px;">SOCIAL AMPLIFICATION</h3>
+            <div class="bento-grid">
+                <div class="bento-card">
+                    <h4 class="bento-title">CUSTOMER CONTENT</h4>
+                    <p style="color: var(--color-text-muted); font-size: 0.95rem;">Customers generate authentic content.</p>
+                </div>
+                <div class="bento-card">
+                    <h4 class="bento-title">LOCAL REACH</h4>
+                    <p style="color: var(--color-text-muted); font-size: 0.95rem;">Friends and family in Kamakhyaguri see it.</p>
+                </div>
+                <div class="bento-card">
+                    <h4 class="bento-title">SOCIAL PROOF</h4>
+                    <p style="color: var(--color-text-muted); font-size: 0.95rem;">Real people showcase the brand naturally.</p>
+                </div>
+                <div class="bento-card">
+                    <h4 class="bento-title">GOLD INCENTIVE</h4>
+                    <p style="color: var(--color-text-muted); font-size: 0.95rem;">The ~₹22K gold coin dramatically increases participation motivation.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section-container fade-up" style="text-align: center; padding-bottom: 60px;">
+            <h2 class="section-title">THE SAREE MAY CHANGE.<br>THE MEMORY STAYS.</h2>
+            <p style="color: var(--color-wine); font-size: 1.1rem; margin-bottom: 40px;">শাড়ি একদিন বদলে যাবে। কিন্তু ভালো অভিজ্ঞতা মনে থেকে যাবে।</p>
+            
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; font-family: var(--font-display);">
+                <div style="background: var(--bg-surface); padding: 15px 25px; border-radius: var(--radius-full); border: 1px solid var(--color-gold);">DAY 1: Purchase</div>
+                <div style="background: var(--bg-surface); padding: 15px 25px; border-radius: var(--radius-full); border: 1px solid var(--color-gold);">DAY 7: Gift Used</div>
+                <div style="background: var(--bg-surface); padding: 15px 25px; border-radius: var(--radius-full); border: 1px solid var(--color-gold);">DAY 30: Family Notices</div>
+                <div style="background: var(--bg-surface); padding: 15px 25px; border-radius: var(--radius-full); border: 1px solid var(--color-gold);">MONTHS LATER: Brand Remembered</div>
+            </div>
+        </section>
+
+        <section style="background: var(--bg-surface); padding: 80px 0;">
+            <div class="section-container fade-up">
+                <div style="text-align: center; margin-bottom: 50px;">
+                    <span class="section-badge">08 · Commercial Logic</span>
+                    <h2 class="section-title">THE COMPLETE SYSTEM</h2>
+                    <p style="color: var(--color-text-muted); max-width: 700px; margin: 0 auto;">
+                        The ₹10K gift campaign is designed to improve basket value. The gifts are a controlled marketing expense. The photo booth creates local customer-generated content. The Gold Coin Race creates social attention.
+                    </p>
+                </div>
+                
+                <div class="system-flow">
+                    <div class="system-card">
+                        <div class="font-bengali-title" style="font-size: 2rem; color: var(--color-wine-deep); margin-bottom: 10px;">দশে বাজিমাত</div>
+                        <div style="font-family: var(--font-display); font-size: 1.1rem; color: var(--color-gold); margin-bottom: 10px;">₹10K+ = PREMIUM GIFT</div>
+                        <p style="color: var(--color-text-muted); font-size: 0.9rem;">Drives higher basket values and creates long-term physical brand memory in the home.</p>
+                    </div>
+                    <div class="system-card">
+                        <div class="font-display" style="font-size: 1.4rem; color: var(--color-wine-deep); margin-bottom: 10px;">THE PHOTO MOMENT</div>
+                        <div style="font-family: var(--font-display); font-size: 1.1rem; color: var(--color-gold); margin-bottom: 10px;">ANY PURCHASE = PHOTO</div>
+                        <p style="color: var(--color-text-muted); font-size: 0.9rem;">Creates an experiential event in-store, making shopping fun and interactive for everyone.</p>
+                    </div>
+                    <div class="system-card">
+                        <div class="font-display" style="font-size: 1.4rem; color: var(--color-wine-deep); margin-bottom: 10px;">THE GOLDEN MOMENT</div>
+                        <div style="font-family: var(--font-display); font-size: 1.1rem; color: var(--color-gold); margin-bottom: 10px;">POST & TAG = WIN 1G GOLD</div>
+                        <p style="color: var(--color-text-muted); font-size: 0.9rem;">Drives free local social media reach across Kamakhyaguri via user-generated content.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="vision" class="final-vision-section">
+            <div class="section-container fade-up">
+                <div class="section-badge" style="border-color: var(--color-gold); color: var(--color-gold-bright);">The Final Vision</div>
+                
+                <div class="final-bengali">দশে বাজিমাত</div>
+                
+                <div class="final-english">
+                    NOT JUST A SALE.<br>
+                    NOT JUST A GIFT.<br>
+                    <span class="text-gold">AN EXPERIENCE PEOPLE REMEMBER.</span>
+                </div>
+                
+                <p style="font-size: 1.2rem; color: var(--color-sand); margin-top: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Modern Saree Palace-কে শুধু একটি শাড়ির দোকান নয়, কামাখ্যাগুড়ির একটি স্মরণীয় shopping experience হিসেবে তৈরি করা।
+                </p>
+                
+                <div style="margin-top: 60px; font-family: var(--font-display); letter-spacing: 2px; color: rgba(255,255,255,0.4);">
+                    MODERN SAREE PALACE · KAMAKHYAGURI
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+            
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.fade-up').forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Scroll Progress Bar Logic
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const progressEl = document.getElementById('scroll-progress');
+            if (progressEl) {
+                progressEl.style.width = scrolled + '%';
+            }
+        });
+
+        // Mobile Menu Toggle Logic
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            const backdrop = document.getElementById('mobile-backdrop');
+            
+            if (drawer.classList.contains('active')) {
+                drawer.classList.remove('active');
+                backdrop.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Restore scroll
+            } else {
+                drawer.classList.add('active');
+                backdrop.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scroll when menu is open
+            }
+        }
+    </script>
+</body>
+</html>
